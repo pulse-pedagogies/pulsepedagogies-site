@@ -6,7 +6,7 @@
 export function Chars({text, className = ''}: {text: string; className?: string}) {
   return (
     <span
-      className={`inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em] ${className}`}
+      className={`pp-char-line inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em] ${className}`}
       aria-hidden="true"
     >
       {text.split('').map((c, i) => (

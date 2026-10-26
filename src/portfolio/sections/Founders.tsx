@@ -19,6 +19,9 @@ const FOUNDERS: Founder[] = [
     name: 'Satenik Ahangarzadeh, M.Ed.',
     role: 'COO · Co-Founder',
     photo: '/satenik.jpg',
+    // Landscape shot with the head near the top edge — anchor there so wide
+    // (mobile/tablet) crops trim the jacket, not the hair
+    focus: 'center top',
     linkedin: 'https://www.linkedin.com/in/satenik-grigoryan-aa931731',
     email: 'emil@pulsepedagogies.com',
     dark: false,
@@ -139,6 +142,23 @@ export function Founders() {
             duration: 0.6,
           }, 1.4);
       });
+
+      // Reduced motion: no deck, no pin — the two cards stack in the flow
+      // (see the motion-safe: classes below) and each fades in as it arrives
+      mm.add('(prefers-reduced-motion: reduce)', () => {
+        gsap.utils.toArray<HTMLElement>('.pp-founder-0, .pp-founder-1').forEach((card) => {
+          gsap.fromTo(
+            card,
+            {autoAlpha: 0},
+            {
+              autoAlpha: 1,
+              duration: 1,
+              ease: 'power1.out',
+              scrollTrigger: {trigger: card, start: 'top 85%', once: true},
+            },
+          );
+        });
+      });
     }, root);
     return () => ctx.revert();
   }, []);
@@ -161,12 +181,12 @@ export function Founders() {
       {/* The deck stage — pinned on desktop, stacked flow on mobile */}
       <div
         ref={stageRef}
-        className="relative px-6 md:px-10 py-16 lg:py-0 lg:h-svh space-y-10 lg:space-y-0"
+        className="relative px-6 md:px-10 py-16 motion-safe:lg:py-0 motion-safe:lg:h-svh space-y-10 motion-safe:lg:space-y-0"
       >
         {FOUNDERS.map((f, i) => (
           <article
             key={f.name}
-            className={`pp-founder-${i} relative overflow-hidden rounded-[36px] md:rounded-[48px] flex flex-col lg:flex-row shadow-[0_50px_110px_-30px_rgba(26,26,26,0.45)] will-change-transform lg:absolute lg:top-1/2 lg:left-1/2 lg:w-[min(1020px,82vw)] lg:h-[min(660px,80svh)] ${
+            className={`pp-founder-${i} relative overflow-hidden rounded-[36px] md:rounded-[48px] flex flex-col lg:flex-row shadow-[0_50px_110px_-30px_rgba(26,26,26,0.45)] motion-safe:will-change-transform motion-safe:lg:absolute motion-safe:lg:top-1/2 motion-safe:lg:left-1/2 motion-safe:lg:w-[min(1020px,82vw)] motion-safe:lg:h-[min(660px,80svh)] motion-reduce:lg:max-w-[1020px] motion-reduce:lg:mx-auto ${
               f.dark
                 ? 'bg-brand-ink text-brand-paper'
                 : 'bg-white border border-brand-ink/10 text-brand-ink'
@@ -230,7 +250,7 @@ export function Founders() {
         ))}
 
         {/* Scroll cue, desktop only */}
-        <p className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-[0.3em] text-brand-ink/35 font-sans">
+        <p className="hidden motion-safe:lg:block absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-[0.3em] text-brand-ink/35 font-sans">
           Scroll — meet both founders
         </p>
       </div>

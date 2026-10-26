@@ -65,8 +65,20 @@ export function RingGallery() {
           3,
         );
       });
+      // Reduced motion: no pin, no spin, no fly-through — the ring holds its
+      // tilt and fades in where it stands
       mm.add('(prefers-reduced-motion: reduce)', () => {
         gsap.set(track, {rotateX: -9, rotateY: 18});
+        gsap.fromTo(
+          zoomRef.current,
+          {autoAlpha: 0},
+          {
+            autoAlpha: 1,
+            duration: 1.2,
+            ease: 'power1.out',
+            scrollTrigger: {trigger: root, start: 'top 70%', once: true},
+          },
+        );
       });
     }, root);
 

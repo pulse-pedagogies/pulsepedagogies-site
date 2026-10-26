@@ -12,6 +12,14 @@ html.lenis body {
   overflow: hidden;
 }
 
+/* Nothing on this page scrolls sideways (section 02's track is a transform,
+   not a scroll). Clip at the root so a sub-pixel spill — fractional display
+   scaling, a pin measured a scrollbar-width wide — can't summon a
+   horizontal scrollbar. */
+html {
+  overflow-x: clip;
+}
+
 html.is-loading {
   overflow: hidden;
 }
@@ -92,6 +100,17 @@ html.is-loading {
   }
   .pp-word {
     opacity: 0.14;
+  }
+}
+
+/* Reduced motion keeps the fades and drops the travel: the same elements
+   start transparent but in place, and fade up where they sit. */
+@media (prefers-reduced-motion: reduce) {
+  .pp-char-line,
+  .pp-reveal,
+  .pp-hero-fade {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 

@@ -36,6 +36,15 @@ export default function PortfolioPage() {
           gsap.to(els, {y: 0, autoAlpha: 1, duration: 1, ease: 'power3.out', stagger: 0.09}),
       });
     });
+    // Reduced motion: the same reveals as a plain fade in place
+    mm.add('(prefers-reduced-motion: reduce)', () => {
+      ScrollTrigger.batch('.pp-reveal', {
+        start: 'top 92%',
+        once: true,
+        onEnter: (els) =>
+          gsap.to(els, {autoAlpha: 1, duration: 0.8, ease: 'power1.out', stagger: 0.06}),
+      });
+    });
 
     // Re-measure pinned sections once webfonts settle
     document.fonts?.ready.then(() => ScrollTrigger.refresh());

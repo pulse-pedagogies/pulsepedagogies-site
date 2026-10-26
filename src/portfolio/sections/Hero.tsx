@@ -25,6 +25,13 @@ export function Hero({start, onOpenForm}: {start: boolean; onOpenForm: () => voi
             '-=0.7',
           );
       });
+      // Reduced motion: the same entrance as a plain fade, nothing travels
+      mm.add('(prefers-reduced-motion: reduce)', () => {
+        gsap
+          .timeline()
+          .to('.pp-char-line', {autoAlpha: 1, duration: 0.8, ease: 'power1.out'})
+          .to('.pp-hero-fade', {autoAlpha: 1, duration: 0.8, ease: 'power1.out'}, '-=0.4');
+      });
     }, rootRef);
     return () => ctx.revert();
   }, [start]);

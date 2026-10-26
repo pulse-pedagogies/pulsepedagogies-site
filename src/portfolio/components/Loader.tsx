@@ -1,5 +1,5 @@
 import {useEffect, useRef} from 'react';
-import {gsap, prefersReducedMotion} from '../lib/gsapSetup';
+import {gsap, ScrollTrigger, prefersReducedMotion} from '../lib/gsapSetup';
 
 export function Loader({onDone}: {onDone: () => void}) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -24,6 +24,9 @@ export function Loader({onDone}: {onDone: () => void}) {
     const tl = gsap.timeline({
       onComplete: () => {
         document.documentElement.classList.remove('is-loading');
+        // The pins were measured while the scrollbar was hidden; now that it is
+        // back the page is narrower, and stale widths overflow sideways
+        ScrollTrigger.refresh();
         doneRef.current();
       },
     });

@@ -72,13 +72,23 @@ export function Reveal() {
           .to({}, {duration: UNITS - 2.4}, 2.4);
       });
 
-      // Reduced motion: everything simply visible, no pin, no scrub
+      // Reduced motion: no pin, no zoom, no shatter — the still image at full
+      // frame, and the phrase fades up over it once it is in view
       mm.add('(prefers-reduced-motion: reduce)', () => {
         gsap.set('.pp-reveal-frame', {scale: 1});
         gsap.set('.pp-reveal-media', {scale: 1});
         gsap.set('.pp-reveal-outline', {autoAlpha: 0});
         gsap.set('.pp-reveal-shade', {opacity: 1});
-        gsap.set('.pp-reveal-phrase', {autoAlpha: 1, y: 0});
+        gsap.fromTo(
+          '.pp-reveal-phrase',
+          {autoAlpha: 0},
+          {
+            autoAlpha: 1,
+            duration: 1.2,
+            ease: 'power1.out',
+            scrollTrigger: {trigger: root, start: 'top 60%', once: true},
+          },
+        );
       });
     }, root);
     return () => ctx.revert();

@@ -2,6 +2,25 @@
 
 ---
 
+## Session: October 26, 2026 — Reduced motion that doesn't look broken; no sideways scrollbar
+
+**The brief.** Emil saw the live site's animation "completely off": hero wave dead, Reveal not shattering, rotating screens still, founders wrong. Production was serving exactly `main` — the cause was the viewer's machine (Chrome at ~190% zoom, which drops a desktop window under the 1024px gate, and/or the OS "Animation effects" switch, which sets `prefers-reduced-motion: reduce`). Under reduce, every section switched off entirely and the page looked broken rather than calm.
+
+**Reduced motion now keeps the fades and drops the travel.** No pins, no scrub, no zoom, no shatter, no spin, no Lenis — but things still arrive:
+
+- `.pp-reveal`, `.pp-hero-fade` and the hero headline (`.pp-char-line`, the `Chars` wrapper) start transparent *in place* under reduce (`portfolio.css`) and fade up — the page-wide batch in `PortfolioPage.tsx` and a reduce branch in `Hero.tsx`.
+- **Reveal:** the still image at full frame; the phrase fades up over it once in view.
+- **RingGallery:** holds its tilt (rotateX −9°, rotateY 18°) and the orbit fades in.
+- **Founders — this one was a real bug, not a tone problem.** The cards carried `lg:absolute lg:top-1/2 lg:left-1/2` unconditionally, but the offsets that centre them are set by GSAP only under no-preference. So on a desktop with reduced motion both cards sat stacked on top of each other, hanging off the centre. The deck classes are now `motion-safe:lg:*`; under reduce the cards stack in the flow at max 1020px, centred, and each fades in.
+
+**The horizontal scrollbar.** The Loader sets `overflow: hidden` on `<html>` while it runs, which hides the vertical scrollbar; the pins were measured in that state, a scrollbar-width too wide, and nothing re-measured when the scrollbar came back — so the pin spacers overhung the page by ~16px. The Loader now calls `ScrollTrigger.refresh()` as it releases the page. Belt and braces: `html { overflow-x: clip }`, since nothing on this page scrolls sideways (section 02's track is a transform) and fractional display scaling can still leave a sub-pixel spill.
+
+**Satenik's portrait** replaced (`public/satenik.jpg`, now a 950×550 landscape shot). Anchored `center top` on both the landing page and `/company` so wide crops trim the jacket, not the hair.
+
+Verified headless (Playwright, cached Chromium) at 1440×900 with `reducedMotion: 'reduce'` — zero pins, nothing left invisible after scrolling past, Founders stacked and centred, no console errors — and with motion on: four pins, Founders deck positioned as before. The 576px-wide case checked in Chrome through a whole-page wheel pass with no horizontal scrollbar. `tsc --noEmit` clean, build clean.
+
+---
+
 ## Session: October 4, 2026 — The line is born in the marquee, and runs on mobile
 
 **The brief.** Emil: the orange line should connect to the orange banner near the top of the site, as if it emanates from there; and on mobile the line did not appear for the three featured products.
