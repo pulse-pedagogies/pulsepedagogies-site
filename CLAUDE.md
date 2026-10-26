@@ -10,7 +10,7 @@
 
 ```bash
 # First time on this device:
-git clone https://github.com/emilpulse-code/pulsepedagogies-site.git .
+git clone https://github.com/pulse-pedagogies/pulsepedagogies-site.git .
 npm install
 
 # Already cloned? Pull latest:
@@ -44,8 +44,8 @@ the top entry in `DEVLOG.md` before touching either. The product detail lives on
 
 The site is live at:
 - **Production:** https://pulsepedagogies.com
-- **Cloudflare Pages preview:** https://pulsepedagogies-site.pages.dev
-- **GitHub repo:** https://github.com/emilpulse-code/pulsepedagogies-site
+- **Cloudflare Pages preview:** https://pulsepedagogies-web.pages.dev
+- **GitHub repo:** https://github.com/pulse-pedagogies/pulsepedagogies-site
 
 **This is no longer a single-page app, and `src/App.tsx` is no longer the landing page.** It is the
 `/company` page. The landing page is `src/portfolio/PortfolioPage.tsx`, which composes the sections
