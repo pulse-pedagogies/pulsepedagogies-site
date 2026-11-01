@@ -71,6 +71,22 @@ export function Contact({onOpenForm}: {onOpenForm: () => void}) {
             >
               VAPA Pulse
             </a>
+            <a
+              href="https://www.linkedin.com/company/144093071"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-orange transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCRoGfS2mMqroZtwMoLTaMMw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-orange transition-colors"
+            >
+              YouTube
+            </a>
             <a href="/compliance" className="hover:text-brand-orange transition-colors">
               Security &amp; Compliance
             </a>
