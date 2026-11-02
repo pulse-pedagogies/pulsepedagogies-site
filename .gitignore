@@ -6,3 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Local-only: internal account/migration notes, never commit (public repo)
+MIGRATION-HANDSHAKE.md
+
+# wrangler pages dev state
+.wrangler/
