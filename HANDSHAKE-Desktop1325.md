@@ -13,7 +13,7 @@ git pull origin main
 npm install
 
 # First time on Desktop1325:
-git clone https://github.com/emilpulse-code/pulsepedagogies-site.git .
+git clone https://github.com/pulse-pedagogies/pulsepedagogies-site.git .
 npm install
 ```
 
@@ -126,7 +126,7 @@ All changes are uncommitted — everything is in the working tree, not pushed ye
 
 | Item | Value |
 |---|---|
-| Repo | https://github.com/emilpulse-code/pulsepedagogies-site |
+| Repo | https://github.com/pulse-pedagogies/pulsepedagogies-site |
 | Production | https://pulsepedagogies.com |
 | Dev server | http://localhost:3000 |
 | Product demo | https://vapapulse.com |
