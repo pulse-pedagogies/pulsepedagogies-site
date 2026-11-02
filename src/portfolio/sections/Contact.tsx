@@ -72,7 +72,7 @@ export function Contact({onOpenForm}: {onOpenForm: () => void}) {
               VAPA Pulse
             </a>
             <a
-              href="https://www.linkedin.com/company/144093071"
+              href="https://www.linkedin.com/company/pulse-pedagogies-llc/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-brand-orange transition-colors"
