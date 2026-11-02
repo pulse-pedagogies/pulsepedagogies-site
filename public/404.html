@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#1A1A1A" />
+    <title>Page not found · Pulse Pedagogies</title>
+    <!--
+      Cloudflare Pages serves this file, with a 404 status, for any path that
+      matches no file in dist/. Without it, Pages falls back to index.html with
+      a 200, and every scanner probe and typo looks like a real page to Google.
+      Kept static (no React, no bundle) so it is cheap to serve to bots.
+    -->
+    <style>
+      :root {
+        --orange: #FF6321;
+        --paper: #F5F2ED;
+        --ink: #1A1A1A;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; height: 100%; }
+      body {
+        background: var(--ink);
+        color: var(--paper);
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 24px;
+      }
+      main { max-width: 560px; }
+      .code {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(96px, 22vw, 180px);
+        line-height: 0.9;
+        color: var(--orange);
+        margin: 0;
+      }
+      h1 {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 500;
+        font-size: clamp(28px, 6vw, 40px);
+        margin: 16px 0 12px;
+      }
+      p { line-height: 1.6; opacity: 0.8; margin: 0 0 28px; }
+      nav { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+      a { color: var(--paper); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+      a:hover, a:focus-visible { color: var(--orange); }
+      a.home {
+        background: var(--orange);
+        color: var(--ink);
+        border: 0;
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+      a.home:hover, a.home:focus-visible { background: var(--paper); color: var(--ink); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="code" aria-hidden="true">404</p>
+      <h1>This page doesn’t exist.</h1>
+      <p>The link may be old, or the address mistyped. Everything we make is a click away from the homepage.</p>
+      <nav>
+        <a class="home" href="/">Back to the homepage</a>
+        <a href="/products">Products</a>
+        <a href="/company">Company</a>
+        <a href="/compliance">Security &amp; compliance</a>
+      </nav>
+    </main>
+  </body>
+</html>
