@@ -85,8 +85,8 @@ const MOMENTS: Moment[] = [
     id: 'signet',
     n: '03',
     name: 'Signet',
-    status: 'Final development',
-    live: false,
+    status: 'Live in production',
+    live: true,
     claim: 'A credential that outlives its system.',
     line: 'Registration, attendance and a signed credential are one record at four moments — and it verifies against a published key, not a call home.',
     Mark: SealConcept,
@@ -334,11 +334,11 @@ function Intro({className = '', itemClass = ''}: {className?: string; itemClass?
         <span>Now Shipping</span>
       </div>
       <h2 className={`${itemClass} font-serif font-light text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.95] mb-8`}>
-        Two in production. <br />
-        <span className="italic text-brand-orange">One landing.</span>
+        Three in production. <br />
+        <span className="italic text-brand-orange">All of them live.</span>
       </h2>
       <p className={`${itemClass} font-serif font-light text-xl md:text-2xl leading-snug text-brand-ink/70 max-w-xl`}>
-        The three products furthest along. Each one is a single idea carried all
+        Three products, all in production. Each one is a single idea carried all
         the way to something a school can use on Monday.
       </p>
     </div>

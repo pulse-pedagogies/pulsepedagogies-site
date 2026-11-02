@@ -117,6 +117,8 @@ district, or deployment may be named or implied.
 
 #### Shipping Signet — what actually has to change
 
+**Done November 1, 2026.** signetsystems.net is live and items 2–6 below are applied (see DEVLOG). The list is kept for the record.
+
 Not one flag. The product's status is spelled out in several places that do not reference each
 other, so grep `Signet` across `src/` and work the list:
 

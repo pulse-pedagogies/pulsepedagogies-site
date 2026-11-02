@@ -86,7 +86,8 @@ export const complianceOps: AppEntry[] = [
     name: 'Signet',
     subtitle: 'Professional Learning Credentials',
     audience: 'Professional Learning Departments',
-    status: 'next',
+    status: 'live',
+    href: 'https://signetsystems.net',
     tagline:
       'Registration, attendance, and verifiable credentials for professional learning — one record, not four systems.',
     problemStatement:

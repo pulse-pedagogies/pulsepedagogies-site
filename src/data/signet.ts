@@ -1,11 +1,13 @@
 /**
- * "Next to ship" — the product in final development, shown under the live one
- * in section 02.
+ * Signet's product data for section 02 and /products. It was the "next to
+ * ship" product until it went live on 2026-11-01.
  *
  * Sibling to `spotlight.ts` and deliberately a separate object, because it
  * makes a different claim: SPOTLIGHT is the newest product a visitor can open
- * today, NEXT_UP is the one landing after it. When Signet ships, it becomes the
- * SPOTLIGHT and whatever is behind it moves in here.
+ * today, NEXT_UP is the one landing after it. Signet shipped on 2026-11-01 (live at
+ * signetsystems.net). Section 02 is now three peer moments rather than a
+ * spotlight + next-up pair, so this object simply stays a third peer of
+ * `spotlight.ts`; the NEXT_UP name is historical.
  *
  * ── A standing constraint on this file ──────────────────────────────────────
  * Nothing here may reference a customer, a district, a deployment, or the
@@ -62,7 +64,7 @@ export interface NextApp {
   name: string;
   /** Rendered in italic orange under the product name. */
   headline: string;
-  /** Never "live", never "in production" — see the file note above. */
+  /** Product status only. The licence note above still applies: never name a customer. */
   status: string;
   tagline: string;
   chips: string[];
@@ -74,7 +76,7 @@ export const NEXT_UP: NextApp = {
   id: 'signet',
   name: 'Signet',
   headline: 'A credential that outlives the system that issued it.',
-  status: 'Final development',
+  status: 'Live in production',
   tagline:
     'Registration, attendance, and verifiable credentials for professional learning — the sign-up list, the calendar entry, the attendance record and the credential are one record at four moments in its life, not four systems to reconcile.',
   chips: ['Open Badges 3.0', 'W3C Verifiable Credentials', 'Workspace SSO', 'No Passwords', 'No Student Data'],

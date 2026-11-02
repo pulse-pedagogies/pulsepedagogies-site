@@ -2,6 +2,22 @@
 
 ---
 
+## Session: November 1, 2026 — Signet ships on the site
+
+**The brief.** Signet is live at signetsystems.net (production since early October; the apex product page was opened to search engines today), so the site should stop calling it "final development" and link to it. Worked the "Shipping Signet" checklist in `CLAUDE.md`.
+
+- **`src/data/apps.ts`**: `signet` is `status: 'live'` with `href: 'https://signetsystems.net'`, so the `/company` status pill reads live.
+- **`src/data/signet.ts`**: `NEXT_UP.status` is "Live in production". Signet stays a third peer of `spotlight.ts` rather than becoming the SPOTLIGHT, because section 02 is three moments now; the header says so and the `NEXT_UP` name is kept as historical.
+- **`Flagships.tsx`**: the Signet moment is live (pulsing dot), and the heading "Two in production. / One landing." is now "Three in production. / All of them live."
+- **`ProductsPage.tsx`**: the `mailto:` CTA is an `OutLink` to signetsystems.net, and the header comment was rewritten. The unused `Mail` import is gone.
+- **`index.html` / `products.html`**: the meta and Open Graph descriptions, the Organization JSON-LD (`description` and `owns`), and the crawlable fallback markup all name Signet with a link to signetsystems.net. `products.html` no longer says "Signet is in final development."
+- **Counts unchanged** (checklist item 8): Signet was already counted in the ten and the eleven.
+- **The licence note still holds.** No customer or deployment is named anywhere. The Signet hero stays the seal.
+
+`tsc --noEmit` clean. Not built here (the connected folder's `node_modules` are Windows binaries); Cloudflare's build is the check.
+
+---
+
 ## Session: October 26, 2026 — Reduced motion that doesn't look broken; no sideways scrollbar
 
 **The brief.** Emil saw the live site's animation "completely off": hero wave dead, Reveal not shattering, rotating screens still, founders wrong. Production was serving exactly `main` — the cause was the viewer's machine (Chrome at ~190% zoom, which drops a desktop window under the 1024px gate, and/or the OS "Animation effects" switch, which sets `prefers-reduced-motion: reduce`). Under reduce, every section switched off entirely and the page looked broken rather than calm.

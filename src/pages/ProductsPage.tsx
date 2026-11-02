@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import type {ReactNode} from 'react';
-import {ArrowUpRight, Mail} from 'lucide-react';
+import {ArrowUpRight} from 'lucide-react';
 import {SPOTLIGHT} from '../data/spotlight';
 import {NEXT_UP} from '../data/signet';
 import {GuardrailDemo} from '../portfolio/components/GuardrailDemo';
@@ -25,13 +25,10 @@ import {PageShell, SectionLabel} from './PageShell';
  * the mechanism, and proof the mechanism runs — with the link out placed where
  * someone who wants to buy will find it.
  *
- * Signet is the exception and has no outbound link. Not for want of a domain —
- * `signetsystem.net` and `signetsystems.net` are both held in Cloudflare — but
- * neither is mapped yet, so there is no page to send anyone to, and the licence
- * behind Signet's only deployment forbids using that deployment as a marketing
- * reference. When one of those domains goes live this becomes an ordinary
- * outbound link like the two above it. See the standing note at the top of
- * `data/signet.ts` before adding anything about who runs it.
+ * Signet links out to signetsystems.net, its own product page, since it went
+ * live on 2026-11-01. The licence behind its deployments still forbids naming or
+ * implying a customer: see the standing note at the top of `data/signet.ts`
+ * before adding anything about who runs it.
  *
  * Anchors (`#vapa-pulse`, `#clearams`, `#signet`) are load-bearing: the landing
  * page's three stations link straight to them.
@@ -292,7 +289,7 @@ export default function ProductsPage() {
           n="03"
           name="Signet"
           status={signet.status}
-          live={false}
+          live
           claim={signet.headline}
           body={signet.tagline}
           chips={signet.chips}
@@ -324,14 +321,7 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* No outbound link, by licence. See the file note in data/signet.ts. */}
-        <a
-          href="mailto:emil@pulsepedagogies.com?subject=Signet"
-          className="group inline-flex items-center gap-3 bg-brand-orange text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-brand-paper hover:text-brand-ink transition-colors"
-        >
-          <Mail className="w-5 h-5" />
-          Talk to us about Signet
-        </a>
+        <OutLink href="https://signetsystems.net">Visit signetsystems.net</OutLink>
       </section>
     </PageShell>
   );
