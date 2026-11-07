@@ -156,7 +156,7 @@ export default function ProductsPage() {
           <span className="italic text-brand-orange">in detail.</span>
         </>
       }
-      intro="Two are in production and one is landing. Each section below is the problem it was built for, the mechanism that solves it, and something you can run yourself to check that the mechanism is real."
+      intro="All three are in production. Each section below is the problem it was built for, the mechanism that solves it, and something you can run yourself to check that the mechanism is real."
     >
       {/* ═══ VAPA Pulse ═══ */}
       <section className="pb-28 md:pb-40 border-b border-brand-paper/10">

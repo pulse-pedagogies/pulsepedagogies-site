@@ -1,6 +1,14 @@
 import {ArrowLeft, Mail} from 'lucide-react';
 import type {ReactNode} from 'react';
 
+const SITE_LINKS = [
+  {name: 'Home', href: '/'},
+  {name: 'Products', href: '/products'},
+  {name: 'Company', href: '/company'},
+  {name: 'Security & Compliance', href: '/compliance'},
+  {name: 'Prop 28 Research', href: '/prop28'},
+];
+
 /** Shared chrome for the standalone info pages (/compliance, /prop28). */
 export function PageShell({
   eyebrow,
@@ -48,6 +56,13 @@ export function PageShell({
       <footer className="border-t border-brand-paper/10">
         <div className="max-w-[100rem] mx-auto px-6 md:px-10 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-[10px] font-bold uppercase tracking-[0.25em] text-brand-paper/35 font-sans">
           <p>© 2026 Pulse Pedagogies, LLC · Glendale, CA · All Rights Reserved</p>
+          <nav aria-label="Site" className="flex flex-wrap gap-6">
+            {SITE_LINKS.map((l) => (
+              <a key={l.href} href={l.href} className="hover:text-brand-orange transition-colors">
+                {l.name}
+              </a>
+            ))}
+          </nav>
           <a
             href="mailto:emil@pulsepedagogies.com"
             className="inline-flex items-center gap-2 hover:text-brand-orange transition-colors"

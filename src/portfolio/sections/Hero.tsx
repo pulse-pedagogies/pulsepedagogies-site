@@ -79,8 +79,11 @@ export function Hero({start, onOpenForm}: {start: boolean; onOpenForm: () => voi
 
         <h1
           className="font-serif font-light leading-[0.88] tracking-tight text-[clamp(4rem,14vw,12rem)]"
-          aria-label="Design with a Pulse."
+          aria-label="Design with a Pulse. Pulse Pedagogies: software for education, built by educators."
         >
+          {/* The slogan alone tells a crawler nothing; the server HTML's h1 is this
+              same descriptive line, so the two now agree. */}
+          <span className="sr-only">Pulse Pedagogies: software for education, built by educators. </span>
           <span className="block">
             <Chars text="Design" />
           </span>

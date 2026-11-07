@@ -87,6 +87,12 @@ export function Contact({onOpenForm}: {onOpenForm: () => void}) {
             >
               YouTube
             </a>
+            <a href="/products" className="hover:text-brand-orange transition-colors">
+              Products
+            </a>
+            <a href="/company" className="hover:text-brand-orange transition-colors">
+              Company
+            </a>
             <a href="/compliance" className="hover:text-brand-orange transition-colors">
               Security &amp; Compliance
             </a>
